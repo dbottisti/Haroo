@@ -1,18 +1,18 @@
 #include <doctest/doctest.h>
-#include <greeter/greeter.h>
-#include <greeter/version.h>
+#include <haroo/haroo.h>
+#include <haroo/version.h>
 
 #include <string>
 
 TEST_CASE("Greeter") {
-  using namespace greeter;
+  using namespace haroo;
 
-  Greeter greeter("Tests");
+  Greeter haroo("Tests");
 
-  CHECK(greeter.greet(LanguageCode::EN) == "Hello, Tests!");
-  CHECK(greeter.greet(LanguageCode::DE) == "Hallo Tests!");
-  CHECK(greeter.greet(LanguageCode::ES) == "¡Hola Tests!");
-  CHECK(greeter.greet(LanguageCode::FR) == "Bonjour Tests!");
+  CHECK(haroo.greet(LanguageCode::EN) == "Hello, Tests!");
+  CHECK(haroo.greet(LanguageCode::DE) == "Hallo Tests!");
+  CHECK(haroo.greet(LanguageCode::ES) == "¡Hola Tests!");
+  CHECK(haroo.greet(LanguageCode::FR) == "Bonjour Tests!");
 }
 
 TEST_CASE("Greeter version") {

@@ -1,7 +1,7 @@
 #include <fmt/format.h>
-#include <greeter/greeter.h>
+#include <haroo/haroo.h>
 
-using namespace greeter;
+using namespace haroo;
 
 Greeter::Greeter(std::string _name) : name(std::move(_name)) {}
 
