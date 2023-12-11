@@ -3,9 +3,9 @@
 
 using namespace haroo;
 
-Greeter::Greeter(std::string _name) : name(std::move(_name)) {}
+Haroo::Haroo(std::string _name) : name(std::move(_name)) {}
 
-std::string Greeter::greet(LanguageCode lang) const {
+std::string Haroo::greet(LanguageCode lang) const {
   switch (lang) {
     default:
     case LanguageCode::EN:

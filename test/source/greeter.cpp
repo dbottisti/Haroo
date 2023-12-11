@@ -1,13 +1,13 @@
-#include <doctest/doctest.h>
 #include <haroo/haroo.h>
 #include <haroo/version.h>
 
+#include <catch2/catch_test_macros.hpp>
 #include <string>
 
-TEST_CASE("Greeter") {
+TEST_CASE("Haroo") {
   using namespace haroo;
 
-  Greeter haroo("Tests");
+  Haroo haroo("Tests");
 
   CHECK(haroo.greet(LanguageCode::EN) == "Hello, Tests!");
   CHECK(haroo.greet(LanguageCode::DE) == "Hallo Tests!");
@@ -15,7 +15,7 @@ TEST_CASE("Greeter") {
   CHECK(haroo.greet(LanguageCode::FR) == "Bonjour Tests!");
 }
 
-TEST_CASE("Greeter version") {
-  static_assert(std::string_view(GREETER_VERSION) == std::string_view("1.0"));
-  CHECK(std::string(GREETER_VERSION) == std::string("1.0"));
+TEST_CASE("Haroo version") {
+  static_assert(std::string_view(HAROO_VERSION) == std::string_view("0.1"));
+  CHECK(std::string(HAROO_VERSION) == std::string("0.1"));
 }

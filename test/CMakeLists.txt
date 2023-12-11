@@ -15,8 +15,7 @@ include(../cmake/tools.cmake)
 
 include(../cmake/CPM.cmake)
 
-CPMAddPackage("gh:doctest/doctest@2.4.9")
-CPMAddPackage("gh:TheLartians/Format.cmake@1.7.3")
+CPMAddPackage("gh:catchorg/Catch2@3.4.0")
 
 if(TEST_INSTALLED_VERSION)
   find_package(Haroo REQUIRED)
@@ -28,7 +27,7 @@ endif()
 
 file(GLOB sources CONFIGURE_DEPENDS ${CMAKE_CURRENT_SOURCE_DIR}/source/*.cpp)
 add_executable(${PROJECT_NAME} ${sources})
-target_link_libraries(${PROJECT_NAME} doctest::doctest Haroo::Haroo)
+target_link_libraries(${PROJECT_NAME} PRIVATE Catch2::Catch2WithMain Haroo::Haroo)
 set_target_properties(${PROJECT_NAME} PROPERTIES CXX_STANDARD 17)
 
 # enable compiler warnings
@@ -49,8 +48,9 @@ enable_testing()
 # testing frameworks add the tests target instead: add_test(NAME ${PROJECT_NAME} COMMAND
 # ${PROJECT_NAME})
 
-include(${doctest_SOURCE_DIR}/scripts/cmake/doctest.cmake)
-doctest_discover_tests(${PROJECT_NAME})
+include(CTest)
+include(${Catch2_SOURCE_DIR}/extras/Catch.cmake)
+catch_discover_tests(${PROJECT_NAME})
 
 # ---- code coverage ----
 
