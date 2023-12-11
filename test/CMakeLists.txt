@@ -16,7 +16,13 @@ include(../cmake/tools.cmake)
 include(../cmake/CPM.cmake)
 
 CPMAddPackage("gh:catchorg/Catch2@3.4.0")
-CPMAddPackage("gh:TheLartians/Format.cmake@1.7.3")
+CPMAddPackage(
+  NAME Format.cmake
+  VERSION 1.7.3
+  GITHUB_REPOSITORY TheLartians/Format.cmake
+  OPTIONS 
+      "FORMAT_SKIP_CMAKE YES"
+)
 
 if(TEST_INSTALLED_VERSION)
   find_package(Haroo REQUIRED)
